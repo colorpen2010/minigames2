@@ -1,0 +1,2 @@
+import pygame
+show_rects=False
