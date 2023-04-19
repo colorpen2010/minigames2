@@ -2,14 +2,15 @@ import pygame,model
 screen=pygame.display.set_mode([800,600])
 
 def ion():
-    kote_kyb=pygame.rect.Rect(400,600-128,169,128)
+    screen.fill([0,0,0])
+    kote_kyb=pygame.rect.Rect(model.x, model.y, 169, 128)
     kote=pygame.image.load('real kartinki/cat1.png')
 
-    zontik_kyb=pygame.rect.Rect(475,395,102,102)
+    zontik_kyb=pygame.rect.Rect(kote_kyb.x+75,kote_kyb.y-77,102,102)
     zontik=pygame.image.load('real kartinki/umbrella.png')
     zontik=pygame.transform.scale(zontik,[100,100])
 
-    vedro_kyb=pygame.rect.Rect(385,440,72,72)
+    vedro_kyb=pygame.rect.Rect(kote_kyb.x-15,kote_kyb.y-30,72,72)
     vedro=pygame.image.load('real kartinki/bucket.png')
     vedro=pygame.transform.scale(vedro,[70,70])
 
