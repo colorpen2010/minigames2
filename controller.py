@@ -6,8 +6,8 @@ def eve():
         if o.type == pygame.QUIT:
             exit()
         if o.type==pygame.KEYDOWN and o.key==pygame.K_LEFT:
-            model.x-=3
+            model.move_left()
         if o.type==pygame.KEYDOWN and o.key==pygame.K_RIGHT:
-            model.x+=3
+            model.move_right()
 
     model.show_rects = bool(pygame.key.get_pressed()[pygame.K_TAB])
