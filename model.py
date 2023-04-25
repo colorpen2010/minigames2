@@ -21,6 +21,7 @@ def move_right():
     kote_kyb.left+=3
     if kote_kyb.right>=780:
         kote_kyb.right=780
+    kote_kyb.x-=25
     vedro_kyb.top = kote_kyb.top - 32
     zontik_kyb.top = kote_kyb.top - 77
     zontik_kyb.right = kote_kyb.left + 80
