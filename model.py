@@ -4,6 +4,21 @@ x=400
 y=472
 katflip=0
 
+def control_left():
+    global katflip
+    if katflip == 1:
+        kote_kyb.x += 130
+    move_left()
+    katflip = 0
+
+def control_right():
+    global katflip
+    if katflip == 0:
+        kote_kyb.x -= 130
+    katflip = 1
+    move_right()
+
+
 def move_subjects():
     zontik_kyb.top=kote_kyb.top-77
     zontik_kyb.right=kote_kyb.right+22
@@ -21,7 +36,6 @@ def move_right():
     kote_kyb.left+=3
     if kote_kyb.right>=780:
         kote_kyb.right=780
-    kote_kyb.x-=25
     vedro_kyb.top = kote_kyb.top - 32
     zontik_kyb.top = kote_kyb.top - 77
     zontik_kyb.right = kote_kyb.left + 80
