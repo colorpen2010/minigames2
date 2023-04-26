@@ -42,6 +42,7 @@ def move_right():
     vedro_kyb.left=kote_kyb.right-50
 
 
+oblako_kyb=pygame.rect.Rect(50,50,150,100)
 kote_kyb = pygame.rect.Rect(x, y, 169, 128)
 zontik_kyb = pygame.rect.Rect(0, 0, 102, 102)
 vedro_kyb = pygame.rect.Rect(kote_kyb.x - 15, kote_kyb.y - 30, 72, 72)
