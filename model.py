@@ -4,6 +4,9 @@ x=400
 y=472
 katflip=0
 
+def oblako_letit():
+    oblako_kyb.left += 3
+
 def control_left():
     global katflip
     if katflip == 1:
