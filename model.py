@@ -7,6 +7,7 @@ ontroloblak=0
 
 def oblako_letit():
     global ontroloblak
+
     if oblako_kyb.right>=800:
         ontroloblak=1
     if oblako_kyb.left<=0:
