@@ -3,9 +3,18 @@ show_rects=False
 x=400
 y=472
 katflip=0
+ontroloblak=0
 
 def oblako_letit():
-    oblako_kyb.left += 3
+    global ontroloblak
+    if oblako_kyb.right>=800:
+        ontroloblak=1
+    if oblako_kyb.left<=0:
+        ontroloblak=0
+    if ontroloblak==0:
+        oblako_kyb.left += 3
+    elif ontroloblak==1:
+        oblako_kyb.left -= 3
 
 def control_left():
     global katflip
