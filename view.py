@@ -8,6 +8,7 @@ oblako=pygame.image.load('real kartinki/cloud.png')
 caplya=pygame.image.load('real kartinki/water_drop.png')
 zatoplenie=pygame.image.load('real kartinki/water.png')
 
+
 zontik = pygame.transform.scale(zontik, [100, 100])
 
 vedro = pygame.transform.scale(vedro, [70, 70])
@@ -39,6 +40,7 @@ def ion():
     screen.blit(zatoplenie,model.zatop_kyb)
     screen.blit(caplya,model.caplya_kyb)
     screen.blit(oblako,model.oblako_kyb)
+    water=pygame.draw.rect(screen,[52,144,193],model.water_kyb)
 
     if model.show_rects == True:
         pygame.draw.rect(screen,[0,200,0],model.kote_kyb,4)
@@ -47,5 +49,6 @@ def ion():
         oblakokyb=pygame.draw.rect(screen,[244,233,255],model.oblako_kyb,4)
         caplyakyb=pygame.draw.rect(screen,[10,10,255],model.caplya_kyb,4)
         zatopleniekyb=pygame.draw.rect(screen,[50,10,200],model.zatop_kyb,4)
+        waterkyb = pygame.draw.rect(screen, [0, 0, 30], model.water_kyb,4)
 
     pygame.display.flip()

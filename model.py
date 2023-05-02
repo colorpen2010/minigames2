@@ -19,9 +19,13 @@ def oblako_letit():
     elif ontroloblak == 1:
         oblako_kyb.left -= 3
     caplya_kyb.y += 3
-    if caplya_kyb.bottom>=600 :
+    if caplya_kyb.bottom>=600 or caplya_kyb.colliderect(zatop_kyb) or caplya_kyb.colliderect(water_kyb):
         caplya_kyb.centery=oblako_kyb.centery
         caplya_kyb.centerx= oblako_kyb.centerx
+        if zatop_kyb.top>=10:
+            zatop_kyb.y-=10
+            water_kyb.y -= 10
+            water_kyb.height += 10
     if caplya_kyb.colliderect(vedro_kyb):
         caplya_kyb.centery=oblako_kyb.centery
         caplya_kyb.centerx= oblako_kyb.centerx
@@ -73,4 +77,5 @@ zontik_kyb = pygame.rect.Rect(0, 0, 102, 102)
 vedro_kyb = pygame.rect.Rect(kote_kyb.x - 15, kote_kyb.y - 30, 72, 72)
 caplya_kyb = pygame.rect.Rect(oblako_kyb.centerx, oblako_kyb.centery + 20, 20, 40)
 zatop_kyb=pygame.rect.Rect(1,570,800,30)
+water_kyb=pygame.rect.Rect(zatop_kyb.left,zatop_kyb.bottom,800,0)
 move_subjects()
