@@ -5,11 +5,11 @@ x = 400
 y = 472
 katflip = 0
 ontroloblak = 0
-kaplis=0
+kaplis = 0
 
 
 def oblako_letit():
-    global ontroloblak, caplya_kyb,kaplis
+    global ontroloblak, caplya_kyb, kaplis
 
     if oblako_kyb.right >= 800:
         ontroloblak = 1
@@ -20,24 +20,25 @@ def oblako_letit():
     elif ontroloblak == 1:
         oblako_kyb.left -= 3
     caplya_kyb.y += 3
-    if caplya_kyb.bottom>=600 or caplya_kyb.colliderect(zatop_kyb) or caplya_kyb.colliderect(water_kyb):
-        caplya_kyb.centery=oblako_kyb.centery
-        caplya_kyb.centerx= oblako_kyb.centerx
-        if zatop_kyb.top>=10:
-            zatop_kyb.y-=10
-            plot_kyb.y-=10
+    if caplya_kyb.bottom >= 600 or caplya_kyb.colliderect(zatop_kyb) or caplya_kyb.colliderect(water_kyb):
+        caplya_kyb.centery = oblako_kyb.centery
+        caplya_kyb.centerx = oblako_kyb.centerx
+        if zatop_kyb.top >= 10:
+            zatop_kyb.y -= 10
+            plot_kyb.y -= 10
             water_kyb.y -= 10
             water_kyb.height += 10
-            kote_kyb.y-=10
-            vedro_kyb.y-=10
-            zontik_kyb.y-=10
+            kote_kyb.y -= 10
+            vedro_kyb.y -= 10
+            zontik_kyb.y -= 10
     if caplya_kyb.colliderect(vedro_kyb):
-        caplya_kyb.centery=oblako_kyb.centery
-        caplya_kyb.centerx= oblako_kyb.centerx
-        kaplis+=1
+        caplya_kyb.centery = oblako_kyb.centery
+        caplya_kyb.centerx = oblako_kyb.centerx
+        kaplis += 1
     if caplya_kyb.colliderect(zontik_kyb):
-        caplya_kyb.centery=oblako_kyb.centery
-        caplya_kyb.centerx= oblako_kyb.centerx
+        caplya_kyb.centery = oblako_kyb.centery
+        caplya_kyb.centerx = oblako_kyb.centerx
+
 
 def control_left():
     global katflip
@@ -62,9 +63,9 @@ def move_subjects():
     vedro_kyb.top = kote_kyb.top - 32
     vedro_kyb.left = kote_kyb.left - 15
 
-    kote_kyb.top=plot_kyb.top-110
+    kote_kyb.top = plot_kyb.top - 110
 
-    plot_kyb.x=kote_kyb.x
+    plot_kyb.x = kote_kyb.x
 
 
 def move_left():
@@ -78,17 +79,18 @@ def move_right():
     kote_kyb.left += 3
     if kote_kyb.right >= 780:
         kote_kyb.right = 780
-    plot_kyb.x = kote_kyb.x-50
+    plot_kyb.x = kote_kyb.x - 50
     vedro_kyb.top = kote_kyb.top - 32
     zontik_kyb.top = kote_kyb.top - 77
     zontik_kyb.right = kote_kyb.left + 80
     vedro_kyb.left = kote_kyb.right - 50
 
-zatop_kyb=pygame.rect.Rect(1,570,800,30)
-water_kyb=pygame.rect.Rect(zatop_kyb.left,zatop_kyb.bottom,800,0)
-plot_kyb=pygame.rect.Rect(zatop_kyb.centerx,zatop_kyb.top,200,50)
+
+zatop_kyb = pygame.rect.Rect(1, 570, 800, 30)
+water_kyb = pygame.rect.Rect(zatop_kyb.left, zatop_kyb.bottom, 800, 0)
+plot_kyb = pygame.rect.Rect(zatop_kyb.centerx, zatop_kyb.top, 200, 50)
 oblako_kyb = pygame.rect.Rect(50, 50, 150, 100)
-kote_kyb = pygame.rect.Rect(x,plot_kyb.top-110, 169, 128)
+kote_kyb = pygame.rect.Rect(x, plot_kyb.top - 110, 169, 128)
 zontik_kyb = pygame.rect.Rect(0, 0, 102, 102)
 vedro_kyb = pygame.rect.Rect(kote_kyb.x - 15, kote_kyb.y - 30, 72, 72)
 caplya_kyb = pygame.rect.Rect(oblako_kyb.centerx, oblako_kyb.centery + 20, 20, 40)
