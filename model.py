@@ -6,21 +6,24 @@ y = 472
 katflip = 0
 ontroloblak = 0
 kaplis = 0
+skorost=4
+ostalos=4
 
 
 def oblako_letit():
-    global ontroloblak, caplya_kyb, kaplis
+    global ontroloblak, caplya_kyb, kaplis,ostalos
 
     if oblako_kyb.right >= 800:
         ontroloblak = 1
     if oblako_kyb.left <= 0:
         ontroloblak = 0
     if ontroloblak == 0:
-        oblako_kyb.left += 3
+        oblako_kyb.left += skorost
     elif ontroloblak == 1:
-        oblako_kyb.left -= 3
+        oblako_kyb.left -= skorost
     caplya_kyb.y += 3
     if caplya_kyb.bottom >= 600 or caplya_kyb.colliderect(zatop_kyb) or caplya_kyb.colliderect(water_kyb):
+        ostalos-=1
         caplya_kyb.centery = oblako_kyb.centery
         caplya_kyb.centerx = oblako_kyb.centerx
         if zatop_kyb.top >= 10:
@@ -32,12 +35,16 @@ def oblako_letit():
             vedro_kyb.y -= 10
             zontik_kyb.y -= 10
     if caplya_kyb.colliderect(vedro_kyb):
+        ostalos-=1
         caplya_kyb.centery = oblako_kyb.centery
         caplya_kyb.centerx = oblako_kyb.centerx
         kaplis += 1
+
     if caplya_kyb.colliderect(zontik_kyb):
+        ostalos-=1
         caplya_kyb.centery = oblako_kyb.centery
         caplya_kyb.centerx = oblako_kyb.centerx
+
 
 
 def control_left():

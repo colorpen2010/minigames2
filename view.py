@@ -26,22 +26,32 @@ zatoplenie = pygame.transform.scale(zatoplenie, model.zatop_kyb.size)
 plot = pygame.transform.scale(plot, model.plot_kyb.size)
 
 
+def kapelka(kapl):
+    if kapl % 10 == 1:
+        if kapl != 11:
+            return ' капля'
+    if kapl % 10 <= 4 and kapl % 10 >= 2:
+        if kapl not in [12, 13, 14]:
+            return ' капли'
+    if kapl % 10 >= 5 or kapl % 10 == 0 or kapl in [11, 12, 13, 14]:
+        return ' капель'
+
+
 def ion():
     screen.fill([0, 0, 0])
 
     screen.blit(zatoplenie, model.zatop_kyb)
     screen.blit(caplya, model.caplya_kyb)
     screen.blit(oblako, model.oblako_kyb)
-    if model.kaplis % 10 == 1:
-        if model.kaplis != 11:
-            d = h.render(str(model.kaplis) + ' капля поймана в ведро', True, [55, 25, 20])
-    if model.kaplis % 10 <= 4 and model.kaplis % 10 >= 2:
-        if model.kaplis not in [12, 13, 14]:
-            d = h.render(str(model.kaplis) + ' капли поймана в ведро ', True, [55, 25, 20])
-    if model.kaplis % 10 >= 5 or model.kaplis % 10 == 0 or model.kaplis in [11, 12, 13, 14]:
-        d = h.render(str(model.kaplis) + ' капель поймана в ведро', True, [55, 25, 20])
+    d = h.render(str(model.kaplis) + kapelka(model.kaplis) + ' поймана в ведро', True, [55, 25, 20])
+
+    a = h.render(str(model.ostalos) + kapelka(model.ostalos) + ' осталось до ускорения', True, [59, 34, 100])
+    if model.ostalos <= 0:
+        model.ostalos = 4
+        model.skorost += 1
 
     screen.blit(d, [50, 5])
+    screen.blit(a, [50, 50])
 
     water = pygame.draw.rect(screen, [52, 144, 193], model.water_kyb)
 
