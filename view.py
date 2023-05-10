@@ -10,10 +10,14 @@ oblako = pygame.image.load('real kartinki/cloud.png')
 caplya = pygame.image.load('real kartinki/water_drop.png')
 zatoplenie = pygame.image.load('real kartinki/water.png')
 plot = pygame.image.load('real kartinki/raft.png')
+solnthe=pygame.image.load('real kartinki/sun.png')
 
 h = pygame.font.SysFont('arial', 50, True, True)
 
 zontik = pygame.transform.scale(zontik, [100, 100])
+
+solnthe= pygame.transform.scale(solnthe,model.solnthe_kyb.size)
+solnthe=pygame.transform.flip(solnthe,True,False)
 
 vedro = pygame.transform.scale(vedro, [70, 70])
 
@@ -42,16 +46,19 @@ def ion():
 
     screen.blit(zatoplenie, model.zatop_kyb)
     screen.blit(caplya, model.caplya_kyb)
+    if model.poivles==1:
+        screen.blit(solnthe,model.solnthe_kyb)
     screen.blit(oblako, model.oblako_kyb)
+
     d = h.render(str(model.kaplis) + kapelka(model.kaplis) + ' поймана в ведро', True, [55, 25, 20])
 
     a = h.render(str(model.ostalos) + kapelka(model.ostalos) + ' осталось до ускорения', True, [59, 34, 100])
-    if model.ostalos <= 0:
-        model.ostalos = 4
-        model.skorost += 1
+
+    f = h.render(str(model.level) + ' уровень', True, [57, 24, 92])
 
     screen.blit(d, [50, 5])
     screen.blit(a, [50, 50])
+    screen.blit(f, [50, 100])
 
     water = pygame.draw.rect(screen, [52, 144, 193], model.water_kyb)
 
@@ -73,6 +80,7 @@ def ion():
 
     if model.show_rects == True:
         pygame.draw.rect(screen, [0, 200, 0], model.kote_kyb, 4)
+        solnkyb=pygame.draw.rect(screen,[255,250,28],model.solnthe_kyb,4)
         zonkyb = pygame.draw.rect(screen, [200, 0, 0], model.zontik_kyb, 4)
         vedrokyb = pygame.draw.rect(screen, [100, 50, 0], model.vedro_kyb, 4)
         oblakokyb = pygame.draw.rect(screen, [244, 233, 255], model.oblako_kyb, 4)

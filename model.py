@@ -6,13 +6,26 @@ y = 472
 katflip = 0
 ontroloblak = 0
 kaplis = 0
-skorost=4
-ostalos=4
+skorost = 3
+caplskoroat = 3
+ostalos = 4
+level = 0
+poivles=0
+
+
+def ostatok():
+    global ostalos, level, skorost, caplskoroat
+    if ostalos <= 0:
+        level += 1
+        ostalos = 4
+        if skorost <= 7:
+            skorost += 1
+        if caplskoroat <= 8:
+            caplskoroat += 0.25
 
 
 def oblako_letit():
-    global ontroloblak, caplya_kyb, kaplis,ostalos
-
+    global ontroloblak, caplya_kyb, kaplis, ostalos
     if oblako_kyb.right >= 800:
         ontroloblak = 1
     if oblako_kyb.left <= 0:
@@ -21,9 +34,10 @@ def oblako_letit():
         oblako_kyb.left += skorost
     elif ontroloblak == 1:
         oblako_kyb.left -= skorost
-    caplya_kyb.y += 3
+    caplya_kyb.y += caplskoroat
     if caplya_kyb.bottom >= 600 or caplya_kyb.colliderect(zatop_kyb) or caplya_kyb.colliderect(water_kyb):
-        ostalos-=1
+        ostalos -= 1
+        ostatok()
         caplya_kyb.centery = oblako_kyb.centery
         caplya_kyb.centerx = oblako_kyb.centerx
         if zatop_kyb.top >= 10:
@@ -34,17 +48,20 @@ def oblako_letit():
             kote_kyb.y -= 10
             vedro_kyb.y -= 10
             zontik_kyb.y -= 10
+        else:
+            exit()
     if caplya_kyb.colliderect(vedro_kyb):
-        ostalos-=1
+        ostalos -= 1
+        ostatok()
         caplya_kyb.centery = oblako_kyb.centery
         caplya_kyb.centerx = oblako_kyb.centerx
         kaplis += 1
 
     if caplya_kyb.colliderect(zontik_kyb):
-        ostalos-=1
+        ostalos -= 1
+        ostatok()
         caplya_kyb.centery = oblako_kyb.centery
         caplya_kyb.centerx = oblako_kyb.centerx
-
 
 
 def control_left():
@@ -94,6 +111,7 @@ def move_right():
 
 
 zatop_kyb = pygame.rect.Rect(1, 570, 800, 30)
+solnthe_kyb = pygame.rect.Rect(650, 5, 100, 100)
 water_kyb = pygame.rect.Rect(zatop_kyb.left, zatop_kyb.bottom, 800, 0)
 plot_kyb = pygame.rect.Rect(zatop_kyb.centerx, zatop_kyb.top, 200, 50)
 oblako_kyb = pygame.rect.Rect(50, 50, 150, 100)

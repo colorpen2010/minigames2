@@ -15,4 +15,7 @@ def eve():
             model.control_left()
         if o.type == pygame.KEYDOWN and o.key == pygame.K_RIGHT:
             model.control_right()
+        if o.type==pygame.KEYDOWN and o.key == pygame.K_RETURN:
+            if model.poivles==0:
+                model.poivles=1
     model.show_rects = bool(pygame.key.get_pressed()[pygame.K_TAB])
