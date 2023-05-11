@@ -16,6 +16,10 @@ def eve():
         if o.type == pygame.KEYDOWN and o.key == pygame.K_RIGHT:
             model.control_right()
         if o.type==pygame.KEYDOWN and o.key == pygame.K_RETURN:
-            if model.poivles==0:
-                model.poivles=1
+            model.solntheistina()
+            pygame.time.set_timer(8889, 6000,1)
+        if o.type==8889:
+            print(6)
+            if model.poivles == 1:
+                model.poivles=0
     model.show_rects = bool(pygame.key.get_pressed()[pygame.K_TAB])

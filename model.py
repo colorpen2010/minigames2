@@ -10,7 +10,24 @@ skorost = 3
 caplskoroat = 3
 ostalos = 4
 level = 0
-poivles=0
+poivles = 0
+
+
+def solntheistina():
+    global poivles, skorost, caplskoroat,kaplis
+    if kaplis >= 3:
+        if poivles == 0:
+            kaplis-=3
+            skorost -= 1
+            water_kyb.y += 10
+            water_kyb.height -= 10
+            zatop_kyb.y += 10
+            caplskoroat -= 0.25
+            plot_kyb.y += 10
+            kote_kyb.y += 10
+            vedro_kyb.y += 10
+            zontik_kyb.y += 10
+            poivles = 1
 
 
 def ostatok():
