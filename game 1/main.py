@@ -1,7 +1,5 @@
 import time
 
-import pygame
-
 import model
 import view
 import controller

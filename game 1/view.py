@@ -3,20 +3,20 @@ import pygame, model
 pygame.init()
 screen = pygame.display.set_mode([800, 600])
 
-kote = pygame.image.load('real kartinki/cat1.png')
-zontik = pygame.image.load('real kartinki/umbrella.png')
-vedro = pygame.image.load('real kartinki/bucket.png')
-oblako = pygame.image.load('real kartinki/cloud.png')
-caplya = pygame.image.load('real kartinki/water_drop.png')
-zatoplenie = pygame.image.load('real kartinki/water.png')
-plot = pygame.image.load('real kartinki/raft.png')
-solnthe=pygame.image.load('real kartinki/sun.png')
+kote = pygame.image.load('game 1/real kartinki/cat1.png')
+zontik = pygame.image.load('game 1/real kartinki/umbrella.png')
+vedro = pygame.image.load('game 1/real kartinki/bucket.png')
+oblako = pygame.image.load('game 1/real kartinki/cloud.png')
+caplya = pygame.image.load('game 1/real kartinki/water_drop.png')
+zatoplenie = pygame.image.load('game 1/real kartinki/water.png')
+plot = pygame.image.load('game 1/real kartinki/raft.png')
+solnthe=pygame.image.load('game 1/real kartinki/sun.png')
 
 h = pygame.font.SysFont('arial', 50, True, True)
 
 zontik = pygame.transform.scale(zontik, [100, 100])
 
-solnthe= pygame.transform.scale(solnthe,model.solnthe_kyb.size)
+solnthe= pygame.transform.scale(solnthe, model.solnthe_kyb.size)
 solnthe=pygame.transform.flip(solnthe,True,False)
 
 vedro = pygame.transform.scale(vedro, [70, 70])
@@ -47,7 +47,7 @@ def ion():
     screen.blit(zatoplenie, model.zatop_kyb)
     screen.blit(caplya, model.caplya_kyb)
     if model.poivles==1:
-        screen.blit(solnthe,model.solnthe_kyb)
+        screen.blit(solnthe, model.solnthe_kyb)
     screen.blit(oblako, model.oblako_kyb)
 
     d = h.render(str(model.kaplis) + kapelka(model.kaplis) + ' поймана в ведро', True, [55, 25, 20])
@@ -80,7 +80,7 @@ def ion():
 
     if model.show_rects == True:
         pygame.draw.rect(screen, [0, 200, 0], model.kote_kyb, 4)
-        solnkyb=pygame.draw.rect(screen,[255,250,28],model.solnthe_kyb,4)
+        solnkyb=pygame.draw.rect(screen, [255,250,28], model.solnthe_kyb, 4)
         zonkyb = pygame.draw.rect(screen, [200, 0, 0], model.zontik_kyb, 4)
         vedrokyb = pygame.draw.rect(screen, [100, 50, 0], model.vedro_kyb, 4)
         oblakokyb = pygame.draw.rect(screen, [244, 233, 255], model.oblako_kyb, 4)
